@@ -1,19 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\V1\Auth\LoginController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\V1\Auth\RegistrationController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\V1\Auth\LoginController;
-use Illuminate\Support\Facades\Route;
 
-Route::post('/login', LoginController::class)
-    ->name('login');
-
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->name('register');
+Route::post('/login', LoginController::class)->name('login');
+Route::post('/register', RegistrationController::class)->name('register');
 
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
     ->name('password.email');
