@@ -37,6 +37,7 @@ final class RegistrationRequest extends FormRequest
                     value: $this->string('password')->toString(),
                     options: []
                 ),
+                'tokenName' => $this->headers->get('X-CLIENT-NAME', $this->ip()),
             ]
         );
     }

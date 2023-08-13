@@ -13,6 +13,9 @@ final class NewUser
         private readonly string $name,
         private readonly string $email,
         private readonly string $password,
+        public ?User $user = null,
+        public string $tokenName = 'Identity',
+        public ?NewAccessToken $token = null,
     ) {
     }
 
